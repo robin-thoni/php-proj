@@ -5,7 +5,10 @@
         </md-button>
         <h2>Toolbar</h2>
         <span flex></span>
-        <span ng-hide="isLogged()"><a ui-sref="login">Login</a></span>
+        <div ng-hide="isLogged()">
+            <span><a ui-sref="signUp">Sign up</a></span> or
+            <span><a ui-sref="login">Login</a></span>
+        </div>
         <span ng-show="isLogged()"><a ui-sref="login">{{ getCurrentUser().Firstname }} {{ getCurrentUser().Lastname }}</a></span>
     </div>
 </md-toolbar>

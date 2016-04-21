@@ -11,6 +11,7 @@ angular.module('app')
             
             $scope.login = function()
             {
+                $scope.error = null;
                 if ($scope.user.Username == "" || $scope.user.Password == "") {
                     return;
                 }
