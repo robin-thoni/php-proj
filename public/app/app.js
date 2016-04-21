@@ -33,6 +33,24 @@ angular.module('app', [
                 controller:'HomeController'
             });
 
+            $stateProvider.state('login', {
+                url:'/login',
+                parent: 'root',
+                title: "Login",
+                reloadOnSearch: false,
+                templateUrl:'views/login.html',
+                controller:'LoginController'
+            });
+
+            $stateProvider.state('signUp', {
+                url:'/signUp',
+                parent: 'root',
+                title: "Sign Up",
+                reloadOnSearch: false,
+                templateUrl:'views/signup.html',
+                controller:'SignUpController'
+            });
+
             $urlRouterProvider.otherwise('/');
     }])
     .directive('dateNow', ['$filter', function($filter) {

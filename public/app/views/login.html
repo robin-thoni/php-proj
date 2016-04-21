@@ -1,0 +1,26 @@
+<div layout="column" layout-fill layout-align="top center">
+    <h1>Login</h1>
+    <div class="col-xs-4">
+        <form ng-submit="login()">
+            <div>
+                <md-input-container class="col-xs-12">
+                    <label for="username">Username</label>
+                    <input name="username" id="username" type="text" ng-model="user.Username" required>
+                </md-input-container>
+            </div>
+            <div>
+                <md-input-container class="col-xs-12">
+                    <label for="password">Password</label>
+                    <input name="password" id="password" type="password" ng-model="user.Password" required>
+                </md-input-container>
+            </div>
+            <div class="col-xs-10 col-xs-offset-1">
+                <md-button class="col-xs-12" type="submit">Login</md-button>
+            </div>
+        </form>
+        <div class="clearfix"></div>
+        <div ng-hide="error == null" class="error-message text-center">
+            {{ error.Data }}
+        </div>
+    </div>
+</div>
