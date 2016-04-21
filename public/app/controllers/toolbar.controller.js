@@ -3,8 +3,8 @@
  */
 
 angular.module('app')
-    .controller('ToolBarController', ['$scope', '$state', '$mdSidenav', 'luticateAuthCache',
-        function($scope, $state, $mdSidenav, luticateAuthCache) {
+    .controller('ToolBarController', ['$scope', '$state', '$mdSidenav', 'luticateAuthCache', 'luticateAuthUsers',
+        function($scope, $state, $mdSidenav, luticateAuthCache, luticateAuthUsers) {
 
                 $scope.toggleSideBar = function()
                 {
@@ -18,4 +18,11 @@ angular.module('app')
                 $scope.isLogged = function () {
                         return $scope.getCurrentUser() != null;
                 };
+
+                $scope.logout = function () {
+                        luticateAuthUsers.logout().then(function(data)
+                        {
+                                $state.go("home");
+                        });
+                }
         }]);

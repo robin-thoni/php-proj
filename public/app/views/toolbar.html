@@ -9,6 +9,6 @@
             <span><a ui-sref="signUp">Sign up</a></span> or
             <span><a ui-sref="login">Login</a></span>
         </div>
-        <span ng-show="isLogged()"><a ui-sref="login">{{ getCurrentUser().Firstname }} {{ getCurrentUser().Lastname }}</a></span>
+        <span ng-show="isLogged()"><a ng-click="logout()" href="">{{ getCurrentUser().Firstname }} {{ getCurrentUser().Lastname }}</a></span>
     </div>
 </md-toolbar>
