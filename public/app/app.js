@@ -45,6 +45,6 @@ angular.module('app', [
     .run(['$rootScope', '$state',
         function ($rootScope, $state) {
             $rootScope.$on('$stateChangeSuccess', function (event, current, previous) {
-                $rootScope.title = current.title + " - App";
+                $rootScope.title = current.title + " - 420px";
             });
     }]);
