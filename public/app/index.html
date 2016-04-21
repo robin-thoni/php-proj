@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr" ng-app="app">
+<head>
+    <base href="/app/">
+    <meta charset="utf-8">
+    <title ng-bind="title">App</title>
+
+    <!-- build:css css/globals.css -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="../bower_components/luticate-utils/src/lubusy.css">
+    <!-- endbuild -->
+
+    <!-- build:less css/styles.css -->
+    <link rel="stylesheet/less" href="less/app.less">
+    <!-- endbuild -->
+
+    <!-- build:remove -->
+    <script>
+        less = {
+            async: true
+        };
+    </script>
+    <!-- endbuild -->
+
+    <!-- build:js app.js -->
+    <!-- bower component -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="../bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    <script src="../bower_components/bootstrap/js/collapse.js"></script>
+    <script src="../bower_components/bootstrap/js/transition.js"></script>
+    <script src="../bower_components/bootstrap/js/dropdown.js"></script>
+    <script src="../bower_components/less/dist/less-1.7.4.js"></script>
+    <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="../bower_components/angular-material/angular-material.min.js"></script>
+    <script src="../bower_components/luticate-utils/dist/luticate-utils.min.js"></script>
+    <script src="../bower_components/luticate-auth/dist/luticate-auth.min.js"></script>
+    <script src="../bower_components/angular-dialog-service/dist/dialogs.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+
+    <!-- scripts -->
+    <script src="app.js"></script>
+
+    <!-- Controller -->
+    <script src="controllers/sidebar.controller.js"></script>
+    <script src="controllers/toolbar.controller.js"></script>
+    <script src="controllers/home.controller.js"></script>
+
+    <!-- Modal Controller -->
+
+    <!-- SDK -->
+    <script src="../sdk/sdk.js"></script>
+
+    <!-- Directives -->
+
+    <!-- endbuild -->
+
+</head>
+<body layout="column">
+    <div layout="row"  flex>
+        <ng-include src="'views/sidebar.html'"></ng-include>
+        <div layout="column" flex id="content">
+            <md-content class="md-main-content">
+                <ng-include src="'views/toolbar.html'"></ng-include>
+                <md-content layout="column" flex class="md-ui-content">
+                    <div ui-view></div>
+                    <ng-include src="'views/footer.html'"></ng-include>
+                </md-content>
+            </md-content>
+        </div>
+    </div>
+</body>
+</html>

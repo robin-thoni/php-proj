@@ -1,0 +1,8 @@
+bower_components
+node_modules
+docs
+.tmp
+.idea
+.DS_Store
+build
+web.config
