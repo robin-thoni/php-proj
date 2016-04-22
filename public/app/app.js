@@ -51,6 +51,15 @@ angular.module('app', [
                 controller:'SignUpController'
             });
 
+            $stateProvider.state('upload', {
+                url:'/upload',
+                parent: 'root',
+                title: "Upload",
+                reloadOnSearch: false,
+                templateUrl:'views/upload.html',
+                controller:'UploadController'
+            });
+
             $urlRouterProvider.otherwise('/');
     }])
     .directive('dateNow', ['$filter', function($filter) {
