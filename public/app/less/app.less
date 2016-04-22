@@ -40,3 +40,25 @@
 .strike {
   text-decoration: line-through;
 }
+
+@dropzone-min-size: 150px;
+
+@dropzone-max-size: 500px;
+
+.dropzone {
+  min-width: @dropzone-min-size;
+  min-height: @dropzone-min-size;
+  max-height: @dropzone-max-size + 2;
+  max-width: @dropzone-max-size + 2;
+  border: 1px solid #6e6e6e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    display: block;
+    max-width: @dropzone-max-size;
+    max-height: @dropzone-max-size;
+    width: auto;
+    height: auto;
+  }
+}

@@ -1,5 +1,10 @@
 <div layout="column" layout-fill layout-align="top center">
-    <p>
-        Upload
-    </p>
+
+    <h1>Upload</h1>
+    <div image-dropzone="fileDropped(content, file)" class="dropzone">
+        <img ng-show="image != null" ng-src="{{ image.content | toDataUrl }}">
+        <p ng-hide="image != null">
+            Drag a file here
+        </p>
+    </div>
 </div>

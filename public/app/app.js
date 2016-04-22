@@ -12,8 +12,10 @@ angular.module('app', [
     'luticateUtils',
     'appSdk'
 ])
-    .config(['$stateProvider', '$urlRouterProvider',
-        function($stateProvider, $urlRouterProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$compileProvider',
+        function($stateProvider, $urlRouterProvider, $compileProvider) {
+
+            $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|data):/);
 
             $stateProvider.state('root', {
                 abstract: true,
@@ -74,4 +76,8 @@ angular.module('app', [
             $rootScope.$on('$stateChangeSuccess', function (event, current, previous) {
                 $rootScope.title = current.title + " - 420px";
             });
-    }]);
+    }]).filter("toDataUrl", function() {
+    return function (data) {
+        return "data:image/*;base64," + btoa(data);
+    }
+});
