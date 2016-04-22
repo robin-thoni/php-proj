@@ -1,6 +1,6 @@
 angular.module('app')
-    .controller('UploadController', ['$scope', '$state', '$mdDialog',
-        function($scope, $state, $mdDialog) {
+    .controller('UploadController', ['$scope', '$state', '$mdDialog', 'EffectsBusiness',
+        function($scope, $state, $mdDialog, EffectsBusiness) {
 
             $scope.image = null;
 
@@ -29,5 +29,25 @@ angular.module('app')
             $scope.pickFile = function()
             {
                 $scope.input.click();
+            };
+            
+            $scope.applyEffect = function(effect, data)
+            {
+                EffectsBusiness.apply({
+                    effect: effect,
+                    image: $scope.image.content,
+                    data: data
+                }).then(function(data)
+                {
+                    $scope.image.content = data.image;
+                }, function (error)
+                {
+                    console.log(error);
+                });
+            };
+
+            $scope.test = function()
+            {
+                $scope.applyEffect("BlackAndWhite", null);
             };
     }]);
