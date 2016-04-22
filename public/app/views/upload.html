@@ -4,7 +4,8 @@
     <div image-dropzone="fileDropped(content, file)" class="dropzone">
         <img ng-show="image != null" ng-src="{{ image.content | toDataUrl }}">
         <p ng-hide="image != null">
-            Drag a file here
+            Drag a file here or <a href="" ng-click="pickFile()">pick one</a>
         </p>
     </div>
+    <input type="file" class="hidden-input" id="filePicker">
 </div>
