@@ -12,4 +12,4 @@ LuticateBusiness::setupAuth();
 LuticateBusiness::setupRoutes("/api/luticate");
 LuDocBusiness::setupRoutes("/api/luticate");
 
-//$route->get("/data", "Data", "getAll", ProjectPermissions::HOST_GET);
+$route->post("/api/effects/{effect}/apply", "Effects", "apply");
