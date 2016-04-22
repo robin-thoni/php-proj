@@ -1,7 +1,7 @@
 <div layout="column" layout-fill layout-align="top center">
 
     <h1>Upload</h1>
-    <div image-dropzone="fileDropped(content, file)" class="dropzone">
+    <div image-dropzone="fileLoaded(content, file)" class="dropzone">
         <img ng-show="image != null" ng-src="{{ image.content | toDataUrl }}">
         <p ng-hide="image != null">
             Drag a file here or <a href="" ng-click="pickFile()">pick one</a>

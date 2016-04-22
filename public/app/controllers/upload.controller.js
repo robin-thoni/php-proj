@@ -12,13 +12,13 @@ angular.module('app')
                 reader.onload = (function(file) {
                     return function(e) {
                         $scope.$apply(function() {
-                            $scope.fileDropped(e.target.result, file);
+                            $scope.fileLoaded(e.target.result, file);
                         });
                     };
                 })(f);
             });
 
-            $scope.fileDropped = function(content, file)
+            $scope.fileLoaded = function(content, file)
             {
                 $scope.image = {
                     content: content,
