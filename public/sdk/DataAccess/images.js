@@ -14,6 +14,11 @@
             return luticateRequest.get(entry_point, data, promise);
         };
 
+        DataAccess.upload = function(data, promise)
+        {
+            return luticateRequest.post(entry_point + "upload", {image: JSON.stringify(data)}, null, promise);
+        };
+
         return DataAccess;
     }])
 })();

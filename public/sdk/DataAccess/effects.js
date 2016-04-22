@@ -11,7 +11,7 @@
 
         DataAccess.apply = function(data, promise)
         {
-            return luticateRequest.post(entry_point + data.effect + "/apply", {data: JSON.stringify(data)}, promise);
+            return luticateRequest.post(entry_point + data.effect + "/apply", {data: JSON.stringify(data)}, null, promise);
         };
         
         return DataAccess;

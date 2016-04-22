@@ -12,8 +12,8 @@ angular.module('app', [
     'luticateUtils',
     'appSdk'
 ])
-    .config(['$stateProvider', '$urlRouterProvider', '$compileProvider',
-        function($stateProvider, $urlRouterProvider, $compileProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$compileProvider', '$httpProvider',
+        function($stateProvider, $urlRouterProvider, $compileProvider, $httpProvider) {
 
             $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|mailto|data):/);
 
@@ -63,6 +63,23 @@ angular.module('app', [
             });
 
             $urlRouterProvider.otherwise('/');
+
+            $httpProvider.interceptors.push(['luticateAuthCache', '$injector', '$q',
+                function (luticateAuthCache, $injector, $q) {
+                    return {
+                        'request': function (config) {
+                            var token = luticateAuthCache.getToken();
+
+                            if (token != null)
+                                config.headers['X-Authorization'] = token;
+
+                            return config;
+                        },
+                        'responseError': function(rejection) {
+                            return $q.reject(rejection);
+                        }
+                    };
+                }]);
     }])
     .directive('dateNow', ['$filter', function($filter) {
         return {

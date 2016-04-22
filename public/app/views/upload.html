@@ -1,12 +1,23 @@
 <div layout="column" layout-fill layout-align="top center">
 
     <h1>Upload</h1>
-    <div image-dropzone="fileLoaded(content, file)" class="dropzone">
-        <img ng-show="image != null" ng-src="{{ image.content | toDataUrl }}">
-        <p ng-hide="image != null">
-            Drag a file here or <a href="" ng-click="pickFile()">pick one</a>
-        </p>
+    <div ng-show="isUploadVisible()" class="col-xs-6" lu-busy="imageView">
+
+        <div class="center-block">
+
+            <div image-dropzone="fileLoaded(content, file)" class="dropzone">
+                <img ng-show="image != null" ng-src="{{ image.content | toDataUrl }}">
+                <p ng-hide="image != null">
+                    Drag a file here or <a href="" ng-click="pickFile()">pick one</a>
+                </p>
+            </div>
+
+            <md-button ng-show="canUpload()" ng-click="upload()" >Upload</md-button>
+            <input type="file" class="hidden-input" id="filePicker">
+        </div>
     </div>
-    <button type="button" ng-click="test()" >Test.</button>
-    <input type="file" class="hidden-input" id="filePicker">
+
+    <div ng-hide="isUploadVisible()">
+        Please <a ui-sref="login">log in</a> or <a ui-sref="signUp">sign up</a> to upload images!
+    </div>
 </div>

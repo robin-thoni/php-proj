@@ -3,7 +3,10 @@
         <md-button class="md-icon-button" aria-label="Toolbar" ng-click="toggleSideBar()" hide-gt-md>
             <md-icon md-svg-icon="img/menu.svg"></md-icon>
         </md-button>
-        <h2>Toolbar</h2>
+        <ul class="nav navbar-nav navbar-left">
+            <li ui-sref-active="active"><a ui-sref="images">Images</a></li>
+            <li ui-sref-active="active"><a ui-sref="upload">Upload</a></li>
+        </ul>
         <span flex></span>
         <div ng-hide="isLogged()">
             <span><a ui-sref="signUp">Sign up</a></span> or
