@@ -1,0 +1,3 @@
+[submodule "public/luticate"]
+	path = public/luticate
+	url = https://git.rthoni.com/luticate/front-backoffice
