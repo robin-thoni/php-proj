@@ -1,12 +1,12 @@
 angular.module('app')
-    .controller('UploadController', ['$scope', '$state', '$mdDialog', 'EffectsBusiness', 'ImagesBusiness', 'luticateAuthCache',
-        function($scope, $state, $mdDialog, EffectsBusiness, ImagesBusiness, luticateAuthCache) {
+    .controller('UploadController', ['$scope', '$state', '$mdDialog', 'EffectsBusiness', 'ImagesBusiness', 'luticateAuthCache', 'errorDialogMd',
+        function($scope, $state, $mdDialog, EffectsBusiness, ImagesBusiness, luticateAuthCache, errorDialogMd) {
 
             $scope.image = null;
             
             var promiseImage = {
                 id: "promiseImage",
-                groups: ["imageView"]
+                loaderGroups: ["imageView"]
             };
 
             $scope.input = angular.element(angular.element("#filePicker")[0]);
@@ -45,10 +45,7 @@ angular.module('app')
                 }, promiseImage).then(function(data)
                 {
                     $scope.image.content = data.image;
-                }, function (error)
-                {
-                    console.log(error);
-                });
+                }, errorDialogMd.errorDialog);
             };
 
             $scope.isUploadVisible = function () {
@@ -67,9 +64,7 @@ angular.module('app')
                 }, promiseImage).then(function(data)
                 {
                     console.log(data);
-                }, function (error) {
-                    console.log(error);
-                });
+                }, errorDialogMd.errorDialog);
             };
 
             $scope.test = function()
