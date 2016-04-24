@@ -13,8 +13,12 @@ LuticateBusiness::setupAuth();
 LuticateBusiness::setupRoutes("/api/luticate");
 LuDocBusiness::setupRoutes("/api/luticate");
 
+$image_id = "{image_id:$int}";
+
 $route->post("/api/effects/{effect}/apply", "Effects", "apply", Permissions::UPLOAD);
 
 $route->post("/api/images/upload", "Images", "upload", Permissions::UPLOAD);
+
+$route->post("/api/images/$image_id/del", "Images", "del", Permissions::UPLOAD);
 
 //sleep(2);
