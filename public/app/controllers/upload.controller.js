@@ -16,6 +16,14 @@ angular.module('app')
                 {
                     name: "Sepia",
                     id: "Sepia"
+                },
+                {
+                    name: "Increase Contrast",
+                    id: "ContrastInc"
+                },
+                {
+                    name: "Decrease Contrast",
+                    id: "ContrastDec"
                 }
             ];
             
