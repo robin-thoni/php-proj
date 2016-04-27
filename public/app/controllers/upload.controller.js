@@ -24,6 +24,10 @@ angular.module('app')
                 {
                     name: "Decrease Contrast",
                     id: "ContrastDec"
+                },
+                {
+                    name: "Edge Detection",
+                    id: "EdgeDetection"
                 }
             ];
             
