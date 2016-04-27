@@ -12,6 +12,10 @@ angular.module('app')
                 {
                     name: "GrayScale",
                     id: "GrayScale"
+                },
+                {
+                    name: "Sepia",
+                    id: "Sepia"
                 }
             ];
             
