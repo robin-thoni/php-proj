@@ -12,6 +12,11 @@
                 </p>
             </div>
 
+            <md-input-container class="col-xs-12">
+                <label for="name">Name</label>
+                <input name="name" id="name" type="text" ng-model="image.name" required>
+            </md-input-container>
+
             <md-button ng-show="canUpload()" ng-click="upload()" >Upload</md-button>
             <input type="file" class="hidden-input" id="filePicker">
         </div>

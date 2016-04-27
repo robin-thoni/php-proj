@@ -51,6 +51,10 @@ class ImagesBusiness extends LuBusiness {
         $dbo->setUserId($_user->getId());
         $dbo->setPath($path);
         $dbo->setDate(Carbon::now());
+        $dbo->setName($image->getName());
+        if (is_null($dbo->getName()) || $dbo->getName() === "") {
+            $dbo->setName(Carbon::now()->toW3cString());
+        }
 
         $image->getImage()->scaleImage(420, 420, true);
         $image->getImage()->setImageFormat(self::IMAGES_FORMAT);

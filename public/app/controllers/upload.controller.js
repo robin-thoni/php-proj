@@ -63,7 +63,7 @@ angular.module('app')
                     name: $scope.image.name
                 }, promiseImage).then(function(data)
                 {
-                    console.log(data);
+                    $state.go("images");
                 }, errorDialogMd.errorDialog);
             };
 
