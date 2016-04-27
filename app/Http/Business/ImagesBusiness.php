@@ -42,6 +42,12 @@ class ImagesBusiness extends LuBusiness {
         echo file_get_contents($dbo->getPath());
         exit;
     }
+    
+    public static function prepareImage(\Imagick $image)
+    {
+        $image->scaleImage(420, 420, true);
+        $image->setImageFormat(self::IMAGES_FORMAT);
+    }
 
     public static function upload(ImageUploadDbo $image, LuticateUsersDbo $_user)
     {
@@ -55,9 +61,9 @@ class ImagesBusiness extends LuBusiness {
         if (is_null($dbo->getName()) || $dbo->getName() === "") {
             $dbo->setName(Carbon::now()->toW3cString());
         }
+        
+        self::prepareImage($image->getImage());
 
-        $image->getImage()->scaleImage(420, 420, true);
-        $image->getImage()->setImageFormat(self::IMAGES_FORMAT);
         try
         {
             $image->getImage()->writeImage($path);

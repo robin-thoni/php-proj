@@ -3,6 +3,17 @@ angular.module('app')
         function($scope, $state, $mdDialog, EffectsBusiness, ImagesBusiness, luticateAuthCache, errorDialogMd) {
 
             $scope.image = null;
+
+            $scope.effects = [
+                {
+                    name: "Black and White",
+                    id: "BlackAndWhite"
+                },
+                {
+                    name: "GrayScale",
+                    id: "GrayScale"
+                }
+            ];
             
             var promiseImage = {
                 id: "promiseImage",

@@ -1,6 +1,11 @@
 <div layout="column" layout-fill layout-align="top center">
 
     <h1>Upload</h1>
+
+    <div class="col-xs12" ng-show="image != null">
+        <md-button ng-repeat="effect in effects" ng-click="applyEffect(effect.id, null)">{{effect.name}}</md-button>
+    </div>
+
     <div ng-show="isUploadVisible()" class="col-xs-6" lu-busy="imageView">
 
         <div class="center-block">

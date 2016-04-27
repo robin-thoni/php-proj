@@ -27,6 +27,8 @@ class EffectsBusiness extends LuBusiness {
             self::notFound("Effect does not exist");
         }
 
+        ImagesBusiness::prepareImage($data->getImage());
+
         /**
          * @var $filter AbstractFilter
          */
