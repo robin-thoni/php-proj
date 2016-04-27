@@ -1,0 +1,14 @@
+<div layout="column" layout-fill layout-align="top center">
+    <div class="col-xs-12" lu-busy="images">
+        <div class="col-xs-12">
+            <md-checkbox ng-model="options.only_mine" ng-show="luticateAuthCache.getUser() != null" ng-change="reload()">
+                Only my images
+            </md-checkbox>
+        </div>
+        <div ng-repeat="image in images.Data" class="col-xs-3">
+            <img ng-src="/api/images/{{image.Id}}" />
+            <p>{{image.Name}}</p>
+            <button class="btn btn-danger" ng-click="delete(image.Id)" ng-show="image.UserId == luticateAuthCache.getUser().Id">Delete</button>
+        </div>
+    </div>
+</div>

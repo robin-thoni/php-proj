@@ -15,6 +15,16 @@ class ImagesController extends LuController {
         return new ImagesBusiness();
     }
 
+    public function getAll($only_mine, LuticateUsersDbo $_user, $page = 0, $perPage = 20000000)
+    {
+        return ImagesBusiness::getAllLite($only_mine == "true", $_user, $page, $perPage);
+    }
+
+    public function getRawById($image_id)
+    {
+        return ImagesBusiness::getRawById($image_id);
+    }
+
     public function upload(ImageUploadDbo $image, LuticateUsersDbo $_user)
     {
         return ImagesBusiness::upload($image, $_user);

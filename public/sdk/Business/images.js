@@ -9,6 +9,8 @@
 
         Business.getAll = ImagesDataAccess.getAll;
 
+        Business.delete = ImagesDataAccess.delete;
+
         Business.upload = function(data, promise)
         {
             data.image = btoa(data.image);

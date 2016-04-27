@@ -20,7 +20,7 @@ angular.module('app')
                     password: $scope.user.Password
                 }).then(function(data)
                 {
-                    $state.go("home");
+                    $state.go("images");
                 }, function (error) {
                     $scope.error = error;
                 });

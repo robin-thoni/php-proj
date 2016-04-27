@@ -26,20 +26,18 @@ angular.module('app', [
                 }]
             });
 
-            $stateProvider.state('home', {
+            $stateProvider.state('images', {
                 url:'/',
                 parent: 'root',
-                title: "Home",
-                reloadOnSearch: false,
-                templateUrl:'views/home.html',
-                controller:'HomeController'
+                title: "Images",
+                templateUrl:'views/images.html',
+                controller:'ImagesController'
             });
 
             $stateProvider.state('login', {
                 url:'/login',
                 parent: 'root',
                 title: "Login",
-                reloadOnSearch: false,
                 templateUrl:'views/login.html',
                 controller:'LoginController'
             });
@@ -48,7 +46,6 @@ angular.module('app', [
                 url:'/signUp',
                 parent: 'root',
                 title: "Sign Up",
-                reloadOnSearch: false,
                 templateUrl:'views/signup.html',
                 controller:'SignUpController'
             });
@@ -57,10 +54,17 @@ angular.module('app', [
                 url:'/upload',
                 parent: 'root',
                 title: "Upload",
-                reloadOnSearch: false,
                 templateUrl:'views/upload.html',
                 controller:'UploadController'
             });
+
+            /*$stateProvider.state('images', {
+                url:'/images',
+                parent: 'root',
+                title: "Images",
+                templateUrl:'views/images.html',
+                controller:'ImagesController'
+            });*/
 
             $urlRouterProvider.otherwise('/');
 

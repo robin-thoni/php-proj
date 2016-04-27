@@ -16,7 +16,9 @@ class ImagesDbo extends LuDbo {
         return array(
             "Id" => $this->_id,
             "UserId" => $this->_userId,
-            "Path" => $this->_path
+            "Path" => $this->_path,
+            "Date" => $this->_date,
+            "Name" => $this->_name
         );
     }
 
@@ -32,6 +34,12 @@ class ImagesDbo extends LuDbo {
         if (isset($json["Path"])) {
             $dbo->setPath($json["Path"]);
         }
+        if (isset($json["Date"])) {
+            $dbo->setDate($json["Date"]);
+        }
+        if (isset($json["Name"])) {
+            $dbo->setName($json["Name"]);
+        }
         return $dbo;
     }
 
@@ -41,6 +49,8 @@ class ImagesDbo extends LuDbo {
         $dbo->setId(42);
         $dbo->setUserId(42);
         $dbo->setPath("sample string");
+        $dbo->setDate("sample string");
+        $dbo->setName("sample string");
         return $dbo;
     }
 
@@ -81,5 +91,31 @@ class ImagesDbo extends LuDbo {
     public function setPath($value)
     {
         $this->_path = $value;
+    }
+
+    /**
+     * @var timestamp without time zone
+     */
+    protected $_date;
+    public function getDate()
+    {
+        return $this->_date;
+    }
+    public function setDate($value)
+    {
+        $this->_date = $value;
+    }
+
+    /**
+     * @var text
+     */
+    protected $_name;
+    public function getName()
+    {
+        return $this->_name;
+    }
+    public function setName($value)
+    {
+        $this->_name = $value;
     }
 }

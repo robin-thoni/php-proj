@@ -28,6 +28,8 @@ class ImagesModel extends LuModel
         $dbo->setId($this->id);
         $dbo->setUserId($this->user_id);
         $dbo->setPath($this->path);
+        $dbo->setDate($this->date);
+        $dbo->setName($this->name);
 
         return $dbo;
     }
@@ -45,6 +47,8 @@ class ImagesModel extends LuModel
         $model->id = $dbo->getId();
         $model->user_id = $dbo->getUserId();
         $model->path = $dbo->getPath();
+        $model->date = $dbo->getDate();
+        $model->name = $dbo->getName();
 
         return $model;
     }

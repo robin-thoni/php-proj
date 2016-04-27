@@ -22,7 +22,7 @@ angular.module('app')
                 $scope.logout = function () {
                         luticateAuthUsers.logout().then(function(data)
                         {
-                                $state.go("home");
+                                $state.go("images");
                         });
                 }
         }]);
